@@ -1,5 +1,5 @@
 
-	public class WinningPosition {
+public class ExactWinning {
 
 	private static final int NO_PLAY = 0;
 	private static final int LADDER = 1;
@@ -13,8 +13,7 @@
 	
 	public static void main(String[] args) {
 		
-		System.out.println("---------- Welcome to the Game of SNAKES AND LADDERS!! ----------");
-		
+		System.out.println("---------- Welcome to the Game of SNAKES AND LADDERS!! ----------");		
 		int positionA = 0;
 		
 		while(positionA < MAX_POSITION) {
@@ -30,12 +29,16 @@
 					
 				case LADDER: 
 					positionA += dice;
+					if(positionA > MAX_POSITION) {
+						positionA = positionA-dice;
+					}
 					break;
 				
 				case SNAKE: 
 					positionA -= dice;
-					if(positionA < MIN_POSITION )
+					if(positionA < MIN_POSITION ) {
 						positionA = 0;
+					}
 					break;
 			}
 			System.out.println("end : "+positionA);
